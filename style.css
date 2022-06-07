@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    transition: color 2s ease-in;
+}
+
+h1, h2 {
+    padding: 20px;
+}
+
+h2 {
+    border: 1px solid white;
+    border-radius: 15px;
+    width: fit-content;
+    margin: 20% auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: greenyellow;
+    background-color: white;
+}
+
+#cirlce {
+    margin: 50px auto;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 600px;
+    height: 600px;
+}
+
+#output {
+    font-size: 2em;
+    margin: 50px;
+}
