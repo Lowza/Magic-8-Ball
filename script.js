@@ -1,7 +1,16 @@
-const time = ['today', 'this week', 'this month', 'this year']
+const time = ['Today', 'This week', 'This month', 'This year']
 const karma = ['good', 'bad', 'very good', 'very bad']
-const experience = ['luck', 'pain', 'anxiety levels', 'times']
+const experience = ['luck', 'vibes', 'fortune', 'times']
+const verb = ['will', 'should', 'might', 'may']
 
-let sentence = `Sometime ${time[Math.floor(Math.random()*4)]} you will experience ${karma[Math.floor(Math.random()*4)]} ${experience[Math.floor(Math.random()*4)]}.`
+let sentence = () => {
+return `${time[Math.floor(Math.random()*4)]} you ${verb[Math.floor(Math.random()*4)]} experience ${karma[Math.floor(Math.random()*4)]} ${experience[Math.floor(Math.random()*4)]}.`
+}
 
-document.write(sentence)
+const newMessage = () => {
+    document.getElementById('output').innerText = sentence();
+  }
+  let btn = document.getElementById("btn");
+  btn.addEventListener('click', event => {
+    newMessage();
+});
