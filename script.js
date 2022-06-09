@@ -14,3 +14,22 @@ const newMessage = () => {
   btn.addEventListener('click', event => {
     newMessage();
 });
+
+const rippleButton = document.getElementById('btn');
+
+function mousePositionToCustromProp(event, element) {
+  let posX = event.offsetX;
+  let posY = event.offsetY;
+
+  element.style.setProperty('--x', posX + 'px')
+  element.style.setProperty('--y', posY + 'px')
+}
+
+
+rippleButton.addEventListener('click', (e) => {
+  mousePositionToCustromProp(e, rippleButton);
+  rippleButton.classList.add('pulse');
+  rippleButton.addEventListener('animationend', () => {
+    rippleButton.classList.remove('pulse');
+  })
+})

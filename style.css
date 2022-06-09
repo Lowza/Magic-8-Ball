@@ -1,31 +1,66 @@
 body {
-    background-color: black;
-    color: rgb(255, 255, 255);
+    background-color: hsl(200 50% 5%);
     font-family: sans-serif;
     text-align: center;
 }
 
 #btn {
-    border: 1px solid white;
-    border-radius: 1vw;
+    font-weight: 500;
+    display: inline-grid;
+    place-items: center;
     width: 10vw;
     position: relative;
+    isolation: isolate;
     top: -8vw;
     margin: 0 auto;
-    font-size: 2vw;
+    font-size: 1.8vw;
     padding: 0.5vw;
+    background-color: transparent;
+    border: 0.2vw solid currentColor;
+    border-radius: 0.2em;
+    color: hsl(200, 100%, 65%);
+    overflow: hidden;
+}
+
+#btn::before {
+    content: "";
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 500ms;
+    width: 150%;
+    aspect-ratio: 1 / 1;
+    background: hsl(200, 100%, 65%);
+    opacity: 0.5;
+    border-radius: 50%;
+    z-index: -1;
+    
+}
+
+.pulse::before {
+    animation: pulse 500ms;
+}
+
+@keyframes pulse {
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+#btn:active::before {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 #btn:hover {
-    color: rgb(0, 0, 0);
-    background-color: white;
     cursor: pointer;
     user-select: none;
 }
 
 #cirlce {
     margin: 4vw auto;
-    border: 5px solid white;
+    border: 0.4vw solid white;
     border-radius: 50%;
     height: 40vw;
     width: 40vw;
@@ -40,7 +75,6 @@ body {
     width: 10vw;
     background-color: white;
     border-radius: 50%;
-    color: black;
     position: absolute;
     font-size: 5vw;
     align-items: center;
@@ -53,4 +87,5 @@ body {
     bottom: -8vw;
     width: 28vw;
     min-height: 5vw;
+    color: hsl(200, 100%, 65%);
 }
