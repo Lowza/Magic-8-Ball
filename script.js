@@ -9,10 +9,14 @@ return `${time[Math.floor(Math.random()*4)]} you ${verb[Math.floor(Math.random()
 
 const newMessage = () => {
     document.getElementById('output').innerText = sentence();
+    document.getElementById('output').style.opacity = 1;
   }
   let btn = document.getElementById("btn");
   btn.addEventListener('click', event => {
     newMessage();
+    setTimeout(() => {
+    document.getElementById('output').style.opacity = 0;
+  }, 4000);
 });
 
 const rippleButton = document.getElementById('btn');
@@ -24,7 +28,6 @@ function mousePositionToCustromProp(event, element) {
   element.style.setProperty('--x', posX + 'px')
   element.style.setProperty('--y', posY + 'px')
 }
-
 
 rippleButton.addEventListener('click', (e) => {
   mousePositionToCustromProp(e, rippleButton);
